@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import NameCard from './NameCard.jsx'
+import ValidationModal from './ValidationModal.jsx'
 
 function Forms() {
     const [person, setPerson] = useState({ name: "", age: "", email: "" })
     const [contactList, setConcactList] = useState([])
+    const [showModal, setShowModal] = useState(false)
+    const [modalMessage, setModalMessage] = useState("")
 
     function handleNameChange(e) {
         setPerson(prev => ({ ...prev, name: e.target.value }))
@@ -23,17 +26,24 @@ function Forms() {
             person.age.trim() === "" ||
             person.email.trim() === ""
         ) {
-            alert("Please fill in all fields!");
+            setModalMessage("Please make sure all fields are filled up.");
+            setShowModal(true);
             return;
         }
-
+    
         if (!person.email.includes("@") || !person.email.includes(".com")) {
-            alert("Please enter a valid Email Address!");
+            setModalMessage("Please enter a valid Email Address!");
+            setShowModal(true);
             return;
         }
-
+    
         setConcactList(prev => [...prev, person]);
         setPerson({ name: "", age: "", email: "" });
+    }
+    
+
+    function handleRemove(indexToRemove) {
+        setConcactList(prev => prev.filter((_, index) => index !== indexToRemove));
     }
 
     return (<>
@@ -57,9 +67,11 @@ function Forms() {
 
         <div className="d-flex flex-row align-items-center my-3 mx-3 gap-3 flex-wrap">
             {contactList.map((person, index) => (
-                <NameCard key={index} name={person.name} age={person.age} email={person.email} />
+                <NameCard key={index} name={person.name} age={person.age} email={person.email} onRemove={()=> handleRemove(index)} />
             ))}
         </div>
+        {showModal && <ValidationModal message={modalMessage} onClose={() => setShowModal(false)} />}
+
     </>
     )
 }

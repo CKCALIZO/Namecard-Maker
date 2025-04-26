@@ -4,13 +4,31 @@ import Forms from './Forms.jsx';
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <h1 className="text-center mt-3 fw-bold">Namecard Maker</h1>
-        <Forms className="flex-grow-1"/>
-      <footer className="text-center mt-auto mb-3 fw-bold">
-        Made by: CKC
-      </footer>
+    <div className="page-container d-flex flex-column min-vh-100 overflow-x-hidden">
+      <div className="header-container my-3">
+        <div className="row justify-content-center">
+          <div className="col-sm-4 justify-content-start">
+            <h1>
+              <div className="fw-bold text-center">Namecard Maker</div>
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="body-container flex-grow-1 my-3">
+        <Forms/>
+      </div>
+
+      <div className="footer-container">
+        <div className="row">
+          <div className="col text-center">
+            <footer>Made by: <b>CKC</b></footer>
+          </div>
+        </div>
+      </div>
     </div>
+
+
   );
 }
 
