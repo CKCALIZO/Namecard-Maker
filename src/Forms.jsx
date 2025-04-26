@@ -48,15 +48,15 @@ function Forms() {
 
     return (<>
         <form className="d-flex justify-content-center align-items-end gap-3">
-            <div className="form-group">
+            <div className="form-grou col-3">
                 <label htmlFor="name-field" style={{ color: 'white' }} className="mb-2">Name</label>
                 <input type="text" value={person.name} onChange={handleNameChange} className="form-control" id="name-field" placeholder="Lastname, Firstname M.I." />
             </div>
-            <div className="form-group">
+            <div className="form-group col-3">
                 <label htmlFor="age-field" style={{ color: 'white' }} className="mb-2">Age</label>
                 <input type="number" min="1" value={person.age} onChange={handleAgeChange} className="form-control" id="age-field" placeholder="Enter your age" />
             </div>
-            <div className="form-group">
+            <div className="form-group col-3">
                 <label htmlFor="email-field" style={{ color: 'white' }} className="mb-2">Email Address</label>
                 <input type="email" value={person.email} onChange={handleEmailChange} className="form-control" id="email-field" placeholder="example@example.com" />
             </div>
