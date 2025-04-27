@@ -47,23 +47,27 @@ function Forms() {
     }
 
     return (<>
+    <div className="container">
         <form className="d-flex justify-content-center align-items-end gap-3">
-            <div className="form-grou col-3">
-                <label htmlFor="name-field" style={{ color: 'white' }} className="mb-2">Name</label>
-                <input type="text" value={person.name} onChange={handleNameChange} className="form-control" id="name-field" placeholder="Lastname, Firstname M.I." />
-            </div>
-            <div className="form-group col-3">
-                <label htmlFor="age-field" style={{ color: 'white' }} className="mb-2">Age</label>
-                <input type="number" min="1" value={person.age} onChange={handleAgeChange} className="form-control" id="age-field" placeholder="Enter your age" />
-            </div>
-            <div className="form-group col-3">
-                <label htmlFor="email-field" style={{ color: 'white' }} className="mb-2">Email Address</label>
-                <input type="email" value={person.email} onChange={handleEmailChange} className="form-control" id="email-field" placeholder="example@example.com" />
-            </div>
-            <div className="d-flex align-items-end">
-                <button className="btn btn-primary" type="submit" onClick={handleAdd}>Add</button>
+            <div className="row w-100 d-flex justify-content-center align-items-end g-3">
+                <div className="col-12 col-md">
+                    <label htmlFor="name-field" style={{ color: 'white' }} className="mb-2">Name</label>
+                    <input type="text" value={person.name} onChange={handleNameChange} className="form-control" id="name-field" placeholder="Lastname, Firstname M.I." />
+                </div>
+                <div className="col-12 col-md">
+                    <label htmlFor="age-field" style={{ color: 'white' }} className="mb-2">Age</label>
+                    <input type="number" min="1" value={person.age} onChange={handleAgeChange} className="form-control" id="age-field" placeholder="Enter your age" />
+                </div>
+                <div className="col-12 col-md">
+                    <label htmlFor="email-field" style={{ color: 'white' }} className="mb-2">Email Address</label>
+                    <input type="email" value={person.email} onChange={handleEmailChange} className="form-control" id="email-field" placeholder="example@example.com" />
+                </div>
+                <div className="col-12 col-md-auto d-flex justify-content-center align-items-center mt-4">
+                    <button className="btn btn-primary w-100" type="submit" onClick={handleAdd}>Add</button>
+                </div>
             </div>
         </form>
+    </div>
 
         <div className="d-flex flex-row align-items-center my-3 mx-3 gap-3 flex-wrap">
             {contactList.map((person, index) => (
