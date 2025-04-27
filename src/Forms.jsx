@@ -4,7 +4,7 @@ import ValidationModal from './ValidationModal.jsx'
 
 function Forms() {
     const [person, setPerson] = useState({ name: "", age: "", email: "" })
-    const [contactList, setConcactList] = useState([])
+    const [contactList, setContactList] = useState([])
     const [showModal, setShowModal] = useState(false)
     const [modalMessage, setModalMessage] = useState("")
 
@@ -37,13 +37,13 @@ function Forms() {
             return;
         }
     
-        setConcactList(prev => [...prev, person]);
+        setContactList(prev => [...prev, person]);
         setPerson({ name: "", age: "", email: "" });
     }
     
 
     function handleRemove(indexToRemove) {
-        setConcactList(prev => prev.filter((_, index) => index !== indexToRemove));
+        setContactList(prev => prev.filter((_, index) => index !== indexToRemove));
     }
 
     return (<>
